@@ -64,4 +64,8 @@
     --color-accent-green-500: #458125;
     --color-accent-green-600: #3C6626;
     --color-accent-green-700: #2D4D1D;
+
+    /* Configuración de Fuentes */
+    --font-sans: 'Roboto', sans-serif;
+    --font-heading: 'Lexend', sans-serif;
 }
