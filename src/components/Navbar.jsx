@@ -1,7 +1,13 @@
 import { SearchBar } from "./SearchBar";
 import { ShoppingCart } from "lucide-react";
 
-export function Navbar() {
+export function Navbar({onOpenCart}) {
+  const handleCartClick = (e) => {
+    if (onOpenCart) {
+      e.preventDefault();
+      onOpenCart();
+    }
+  };
   return (
     <nav className="w-full bg-primary-400">
       <div className="w-full px-4 sm:px-6 h-16 grid grid-cols-3 items-center gap-3">
@@ -13,15 +19,20 @@ export function Navbar() {
         </div>
 
         <div className="flex justify-center">
-          <a href="#">
+          <a href="/">
             <img src="assets/las-miliuna.png" alt="Logo Las Miliuna" className="h-12 w-auto" />
           </a>
         </div>
 
         <div className="flex justify-end">
-          <a href="/cart" className="flex items-center gap-2 p-1">
+          <button 
+            onClick={handleCartClick}
+            className="flex items-center gap-2 p-1.5 rounded-full hover:bg-primary-500 transition-colors cursor-pointer"
+            aria-label="Abrir carrito"
+          >
             <ShoppingCart className="text-neutral-100" />
-          </a>
+          </button>
+            
         </div>
 
       </div>

@@ -20,9 +20,10 @@ export function Login() {
   };
 
   return (
-    <div className="w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-white font-sans">
+    <div className="w-full h-screen overflow-hidden grid grid-cols-1 lg:grid-cols-2 bg-white font-sans">
       
-      <div className="hidden lg:flex items-center justify-center bg-[#f5f5f5] p-0 overflow-hidden border-r border-neutral-100">
+      {/* SECCIÓN IZQUIERDA: Imagen */}
+      <div className="hidden lg:block w-full h-full bg-[#f5f5f5] overflow-hidden border-r border-neutral-100">
         <img
           src="assets/background-login.png"
           alt="Las Miliuna"
@@ -30,20 +31,23 @@ export function Login() {
         />
       </div>
 
-      <div className="flex items-center justify-center p-6 sm:p-12 bg-white">
+      {/* SECCIÓN DERECHA: Formulario */}
+      <div className="flex items-center justify-center p-6 h-full bg-white">
         
-        <div className="w-full max-w-[420px] bg-white p-8 sm:p-10 rounded-2xl shadow-lg shadow-neutral-100 border border-neutral-100/80">
+        {/* Ancho máximo ligeramente ampliado (max-w-md / 440px) */}
+        <div className="w-full max-w-md bg-white p-8 sm:p-10 rounded-2xl shadow-lg shadow-neutral-100 border border-neutral-100/80">
           
-          <h1 className="font-sans text-2xl sm:text-3xl font-bold text-center text-neutral-700 mb-6">
+          <h1 className="font-heading text-3xl font-bold text-center text-neutral-700 mb-8">
             Iniciar sesión
           </h1>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             
-            <div className="space-y-1.5">
+            {/* Campo Correo */}
+            <div className="space-y-2">
               <label 
                 htmlFor="email" 
-                className="block text-xs font-bold text-neutral-600"
+                className="block text-sm font-semibold text-neutral-600"
               >
                 Correo Electrónico
               </label>
@@ -55,14 +59,15 @@ export function Login() {
                 onChange={handleChange}
                 placeholder="ejemplo@correo.com"
                 required
-                className="w-full px-3.5 py-2.5 text-xs rounded-lg bg-white border border-neutral-200/80 text-neutral-600 placeholder:text-neutral-200 focus:outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-all"
+                className="w-full px-4 py-3 text-sm rounded-xl bg-white border border-neutral-200 text-neutral-700 placeholder:text-neutral-300 focus:outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-all"
               />
             </div>
 
-            <div className="space-y-1.5">
+            {/* Campo Contraseña */}
+            <div className="space-y-2">
               <label 
                 htmlFor="password" 
-                className="block text-xs font-bold text-neutral-600"
+                className="block text-sm font-semibold text-neutral-600"
               >
                 Contraseña
               </label>
@@ -74,27 +79,30 @@ export function Login() {
                 onChange={handleChange}
                 placeholder="••••••••"
                 required
-                className="w-full px-3.5 py-2.5 text-xs rounded-lg bg-white border border-neutral-200/80 text-neutral-600 placeholder:text-neutral-200 focus:outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-all"
+                className="w-full px-4 py-3 text-sm rounded-xl bg-white border border-neutral-200 text-neutral-700 placeholder:text-neutral-300 focus:outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-400 transition-all"
               />
             </div>
 
-            <div className="text-center pt-2">
+            {/* Enlace Recuperar */}
+            <div className="text-center pt-1">
               <a
                 href="#recuperar"
-                className="text-[11px] text-neutral-300 font-medium hover:text-neutral-400"
+                className="text-xs text-neutral-400 font-medium hover:text-neutral-600 transition-colors"
               >
                 ¿Olvidaste tu contraseña? <span className="text-primary-400 font-bold hover:underline">Click aquí</span>
               </a>
             </div>
 
+            {/* Botón Entrar */}
             <button
               type="submit"
-              className="font-heading w-full py-3 px-4 bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-white font-semibold text-sm rounded-xl transition-all cursor-pointer mt-2 shadow-xs"
+              className="font-heading w-full py-3.5 px-4 bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-white font-semibold text-base rounded-xl transition-all cursor-pointer mt-2 shadow-xs"
             >
               Entrar
             </button>
 
-            <div className="text-center pt-2 text-[11px] text-neutral-300 font-medium">
+            {/* Enlace Registro */}
+            <div className="text-center pt-2 text-xs text-neutral-400 font-medium">
               ¿No tenés cuenta?{" "}
               <Link
                 to="/register"
