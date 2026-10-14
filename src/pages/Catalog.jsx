@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { TopBanner } from "../components/TopBanner";
+import { ProductCard } from "../components/ProductCard";
 import {
-  ShoppingBag,
-  Heart,
   Filter,
   X,
   Trash2,
@@ -225,55 +224,15 @@ export function Catalog() {
             {/* Configurado en 3 columnas para que las fotos tengan buen espacio */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {PRODUCTS.map((product) => (
-                <div
+                <ProductCard
                   key={product.id}
-                  className="group relative bg-white rounded-2xl border border-neutral-100 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div className="relative aspect-square w-full bg-neutral-100 overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
-
-                    {product.tag && (
-                      <span className="absolute top-3 left-3 bg-primary-100 text-primary-600 text-[11px] font-bold px-2.5 py-1 rounded-full border border-primary-200/60">
-                        {product.tag}
-                      </span>
-                    )}
-
-                    <button className="absolute top-3 right-3 p-2 rounded-full bg-white/80 backdrop-blur-md text-neutral-400 hover:text-primary-500 hover:bg-white transition-colors shadow-xs">
-                      <Heart className="w-4 h-4" />
-                    </button>
-                  </div>
-
-                  <div className="p-4 flex-1 flex flex-col justify-between">
-                    <div>
-                      <span className="text-[11px] font-medium text-neutral-300">
-                        por {product.vendor}
-                      </span>
-                      <h3 className="font-semibold text-xs text-neutral-600 mt-0.5 group-hover:text-primary-500 transition-colors line-clamp-1">
-                        {product.name}
-                      </h3>
-                    </div>
-
-                    <div className="mt-2">
-                      <span className="text-sm font-bold text-neutral-600">
-                        ${product.price.toFixed(2)}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-4 pt-0">
-                    <button
-                      onClick={() => setIsCartOpen(true)}
-                      className="font-heading w-full py-2 px-3 bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-white font-semibold text-xs rounded-xl transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      <ShoppingBag className="w-3.5 h-3.5" />
-                      Agregar al Carrito
-                    </button>
-                  </div>
-                </div>
+                  product={product}
+                  onAddToCart={(item) => {
+                    // Lógica para agregar al carrito y abrir el drawer
+                    handleAddToCart(item);
+                    setIsCartOpen(true);
+                  }}
+                />
               ))}
             </div>
           </section>
@@ -292,7 +251,7 @@ export function Catalog() {
 
       <aside
         className={`
-          fixed top-0 right-0 z-50 h-full w-full sm:w-[380px] bg-white shadow-2xl border-l border-neutral-100
+          fixed top-0 right-0 z-50 h-full w-full sm:w-95 bg-white shadow-2xl border-l border-neutral-100
           flex flex-col justify-between transform transition-transform duration-300 ease-in-out
           ${isCartOpen ? "translate-x-0" : "translate-x-full"}
         `}
