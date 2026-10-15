@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { TopBanner } from "../components/TopBanner";
 import { ProductCard } from "../components/ProductCard";
+import { TrustBanner } from "../components/TrustBanner";
 import {
   Filter,
   X,
@@ -11,6 +12,7 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
+
 
 // Lista de Emprendedores
 const VENDORS = [
@@ -352,6 +354,7 @@ export function Catalog() {
         </div>
       </aside>
 
+      <TrustBanner />
       {/* Footer Reutilizado */}
       <Footer />
     </div>
