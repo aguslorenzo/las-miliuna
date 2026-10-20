@@ -5,6 +5,7 @@ import { Footer } from "../components/Footer";
 import { TopBanner } from "../components/TopBanner";
 import { ProductCard } from "../components/ProductCard";
 import { TrustBanner } from "../components/TrustBanner";
+import { CheckoutModal } from "../components/CheckoutModal.jsx";
 import {
   Filter,
   X,
@@ -81,7 +82,8 @@ const PRODUCTS = [
 export function Catalog() {
   const [selectedVendors, setSelectedVendors] = useState(["Cerámicas Ana"]);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false); // Controla el carrito lateral derecho
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   // Items del carrito
   const [cartItems, setCartItems] = useState([
@@ -345,18 +347,29 @@ export function Catalog() {
             </span>
           </div>
 
-          <Link
-            to="/cart"
-            className="font-heading block text-center w-full py-3 px-4 bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-white font-semibold text-xs rounded-xl shadow-md hover:shadow-lg transition-all duration-200 mt-2 cursor-pointer"
-          >
-            Finalizar Compra
-          </Link>
+          <button
+  type="button"
+  onClick={() => {
+    setIsCartOpen(false);    // Cierra la barra lateral del carrito
+    setIsCheckoutOpen(true); // Abre el modal por encima del catálogo
+  }}
+  className="font-heading block w-full py-3 px-4 bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-white font-semibold text-xs rounded-xl shadow-md hover:shadow-lg transition-all duration-200 mt-2 cursor-pointer text-center"
+>
+  Finalizar Compra
+</button>
         </div>
       </aside>
 
       <TrustBanner />
       {/* Footer Reutilizado */}
       <Footer />
+      <CheckoutModal
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+        cartItems={cartItems}
+        onUpdateQuantity={updateQuantity}
+        onRemoveItem={removeItem}
+      />
     </div>
   );
 }
