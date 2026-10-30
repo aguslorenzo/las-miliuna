@@ -1,4 +1,4 @@
-import { Sparkles, Heart, Clock, Users } from "lucide-react";
+import { Sparkles, Heart, Clock, Store, Users, ArrowRight } from "lucide-react";
 import { Footer } from "../components/Footer";
 import { TopBanner } from "../components/TopBanner";
 import { Navbar } from "../components/Navbar";
@@ -7,51 +7,138 @@ export function About() {
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-600 flex flex-col justify-between">
       <TopBanner />
-      <Navbar />
-      {/* Contenido Principal */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-16 space-y-16">
+      <Navbar />  
+      {/* CONTENIDO PRINCIPAL */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-16">
         
-        {/* SECCIÓN 1: Quiénes somos / Introducción */}
-        <section className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-100 text-primary-600 rounded-full text-xs font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
-            Nuestra Esencia
+        {/* ================= SECCIÓN 1: SOBRE NOSOTRAS (Cabecera + Foto) ================= */}
+        <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div className="md:col-span-7 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary-500 bg-primary-100 px-3 py-1 rounded-full">
+              Sobre Nosotras
+            </span>
+            <h1 className="font-heading text-3xl sm:text-4xl font-bold text-neutral-700 leading-tight">
+              La casa de emprendedores
+            </h1>
+            <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed">
+              Las Miliuna es mucho más que un espacio de venta. Es un proyecto que nació de la pasión por los productos locales, el encuentro entre personas y el deseo de mostrar todo lo lindo que se crea en Tandil y la zona.
+            </p>
+            <div className="pt-2">
+              <p className="font-heading italic text-primary-500 text-sm sm:text-base">
+                "Acá hay historias, talento y mucho amor por lo que se hace. ♡"
+              </p>
+            </div>
           </div>
-          <h1 className="font-heading text-3xl sm:text-4xl font-bold text-neutral-700">
-            Detrás de cada pieza, hay una historia
-          </h1>
-          <p className="text-sm sm:text-base text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            Las Miliuna nació como un espacio de encuentro entre el diseño independiente y quienes valoran lo hecho a mano. Somos un puente entre creadores locales y vos, buscando que cada objeto tenga identidad y alma.
-          </p>
+
+          {/* FOTO 1 (Donde marcaste arriba a la derecha en la inspo) */}
+          <div className="md:col-span-5">
+            <div className="relative rounded-3xl overflow-hidden shadow-md border-4 border-white bg-neutral-100 h-64 sm:h-72">
+              <img 
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" 
+                alt="Local Las Miliuna" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </section>
 
-        {/* SECCIÓN 2: La Historia (17 años) - Estilo Tarjeta Destacada */}
-        <section className="bg-neutral-100/50 border border-neutral-100 rounded-3xl p-8 sm:p-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div className="md:col-span-5 flex flex-col items-center justify-center bg-white p-8 rounded-2xl shadow-xs text-center border border-neutral-100">
-            <Clock className="w-10 h-10 text-primary-400 mb-3" />
-            <span className="font-heading text-3xl font-bold text-neutral-700">+17 años</span>
-            <span className="text-xs text-neutral-400 font-medium mt-1">Creciendo junto a nuestra comunidad</span>
-          </div>
-
-          <div className="md:col-span-7 space-y-3">
-            <h2 className="font-heading text-xl sm:text-2xl font-bold text-neutral-700">
-              Una trayectoria hecha a mano
+        {/* ================= SECCIÓN 2: CÓMO EMPEZÓ TODO (Línea de tiempo) ================= */}
+        <section className="bg-primary-100/30 border border-primary-100/60 rounded-3xl p-8 sm:p-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          
+          <div className="md:col-span-6 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary-500 bg-white px-3 py-1 rounded-full shadow-2xs">
+              El Proyecto
+            </span>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-neutral-700">
+              Cómo empezó todo
             </h2>
-            <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
-              Lo que comenzó hace más de una década y media como un proyecto impulsado por la pasión por lo artesanal, fue transformándose gracias a cada persona que nos eligió. A lo largo de estos 17 años aprendimos de procesos, de texturas y del valor incalculable de lo hecho con dedicación.
+            <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed">
+              La idea de Las Miliuna nació con la convicción de valorar aún más lo local, lo hecho a mano y lo auténtico. Lo que comenzó como una pequeña tienda online, se transformó en un espacio físico con la intención de reunir a emprendedores de la zona y darles un lugar para mostrar y vender sus productos.
+            </p>
+            <p className="font-heading italic text-primary-500 text-xs sm:text-sm pt-2">
+              "Lo que empezó como un sueño, hoy es una casa llena de vida. ♡"
             </p>
           </div>
+
+          {/* Línea de tiempo simple o hitos */}
+          <div className="md:col-span-6 space-y-4 bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-2xs">
+            <div className="flex items-start gap-3">
+              <div className="p-2 bg-primary-100 text-primary-500 rounded-xl mt-0.5"><Clock className="w-4 h-4"/></div>
+              <div>
+                <h4 className="font-bold text-xs text-neutral-700">Inicios del proyecto</h4>
+                <p className="text-[11px] text-neutral-400">Comienza el proyecto con una tienda online impulsada por el amor a lo artesanal.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="p-2 bg-primary-100 text-primary-500 rounded-xl mt-0.5"><Store className="w-4 h-4"/></div>
+              <div>
+                <h4 className="font-bold text-xs text-neutral-700">Espacio físico</h4>
+                <p className="text-[11px] text-neutral-400">Se suma el primer espacio físico en Tandil para conectar de cerca con la comunidad.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="p-2 bg-primary-100 text-primary-500 rounded-xl mt-0.5"><Users className="w-4 h-4"/></div>
+              <div>
+                <h4 className="font-bold text-xs text-neutral-700">+17 años de trayectoria</h4>
+                <p className="text-[11px] text-neutral-400">La casa sigue creciendo, sumando más emprendedores, variedad y renovando su propuesta cada día.</p>
+              </div>
+            </div>
+          </div>
+
         </section>
 
-        {/* SECCIÓN 3: Mensaje Motivador / Invitación */}
-        <section className="text-center bg-primary-400 text-white rounded-3xl p-8 sm:p-12 space-y-6 shadow-md">
-          <Heart className="w-8 h-8 text-primary-100 mx-auto fill-primary-100" />
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold">
-            Formá parte de nuestra comunidad
+        {/* ================= SECCIÓN 3: MUCHO MÁS QUE PRODUCTOS (Segunda Foto) ================= */}
+        <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          
+          {/* FOTO 2 (Abajo a la izquierda según la referencia) */}
+          <div className="md:col-span-5 order-2 md:order-1">
+            <div className="relative rounded-3xl overflow-hidden shadow-md border-4 border-white bg-neutral-100 h-64 sm:h-72">
+              <img 
+                src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" 
+                alt="Productos artesanales Las Miliuna" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="md:col-span-7 space-y-4 order-1 md:order-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary-500 bg-primary-100 px-3 py-1 rounded-full">
+              Nuestra Esencia
+            </span>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-neutral-700">
+              Mucho más que productos
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed">
+              En Las Miliuna vas a encontrar una gran variedad de productos de emprendedores locales: decoración, indumentaria, accesorios, cosmética natural, bienestar, regalos y mucho más. Cada producto tiene una historia, y cada emprendedor pone en él su creatividad, esfuerzo y pasión.
+            </p>
+            <p className="font-heading italic text-primary-500 text-sm">
+              "Productos reales, personas reales, una misma pasión. ♡"
+            </p>
+          </div>
+
+        </section>
+
+        {/* ================= SECCIÓN 4: CTA / SUMATE ================= */}
+        <section className="bg-neutral-100/60 border border-neutral-100 rounded-3xl p-8 sm:p-10 text-center space-y-4 max-w-2xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-widest text-primary-500 bg-white px-3 py-1 rounded-full shadow-2xs">
+            Sumate
+          </span>
+          <h2 className="font-heading text-xl sm:text-2xl font-bold text-neutral-700">
+            ¿Querés ser parte?
           </h2>
-          <p className="text-xs sm:text-sm text-primary-100 max-w-xl mx-auto leading-relaxed">
-            Creemos firmemente en el valor de lo local y en apoyar el trabajo independiente. Gracias por estar del otro lado y elegirnos para llenar tus espacios de significado.
+          <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed">
+            Si sos emprendedor/a y tenés productos únicos, hechos con amor y dedicación, te invitamos a ser parte de Las Miliuna. Queremos conocer tu propuesta y que juntas hagamos crecer el talento local.
           </p>
+          <div className="pt-2">
+            <a 
+              href="/contacto"
+              className="font-heading inline-flex items-center gap-2 px-6 py-3 bg-primary-400 hover:bg-primary-500 text-white font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer"
+            >
+              Contactanos <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
         </section>
 
       </main>

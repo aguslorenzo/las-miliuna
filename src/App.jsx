@@ -3,6 +3,7 @@ import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { Catalog } from './pages/Catalog'
 import { About } from './pages/About'
+import { Entrepreneurs } from './pages/Entrepreneurs'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/catalogo" element={<Catalog />} />
         <Route path="/nosotras" element={<About />} />
+        <Route path="/emprendedores" element={<Entrepreneurs />} />
       </Routes>
     </BrowserRouter>
   )
