@@ -6,7 +6,6 @@ export function ProductCard({ product, onAddToCart, onToggleFavorite }) {
   return (
     <div className="group relative bg-white rounded-2xl border border-neutral-100 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
       
-      {/* Imagen + Tags + Favoritos */}
       <div className="relative aspect-square w-full bg-neutral-100 overflow-hidden">
         <img
           src={image}
@@ -20,20 +19,13 @@ export function ProductCard({ product, onAddToCart, onToggleFavorite }) {
           </span>
         )}
 
-        <button
-          onClick={() => onToggleFavorite && onToggleFavorite(id)}
-          aria-label="Agregar a favoritos"
-          className="absolute top-3 right-3 p-2 rounded-full bg-white/80 backdrop-blur-md text-neutral-400 hover:text-primary-500 hover:bg-white transition-colors shadow-xs cursor-pointer"
-        >
-          <Heart className="w-4 h-4" />
-        </button>
       </div>
 
-      {/* Información del Producto */}
+      {/* vendedor+producto*/}
       <div className="p-4 flex-1 flex flex-col justify-between">
         <div>
           <span className="text-xs font-medium text-neutral-400">
-            por {vendor}
+            {vendor}
           </span>
           <h3 className="font-semibold text-sm text-neutral-600 mt-0.5 group-hover:text-primary-500 transition-colors line-clamp-1">
             {name}
@@ -47,7 +39,6 @@ export function ProductCard({ product, onAddToCart, onToggleFavorite }) {
         </div>
       </div>
 
-      {/* Botón de Acción Principal */}
       <div className="p-4 pt-0">
         <button
           onClick={() => onAddToCart && onAddToCart(product)}

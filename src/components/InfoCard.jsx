@@ -2,7 +2,7 @@ export function InfoCard({
   icon: Icon, 
   title, 
   description, 
-  variant = "default", // "default" (confianza/azul) | "category" (categorías/rosa)
+  variant = "default",
   isActive = false,
   onClick 
 }) {
@@ -23,7 +23,6 @@ export function InfoCard({
         }
       `}
     >
-      {/* Contenedor del Ícono con hover interactivo */}
       <div
         className={`
           flex items-center justify-center p-3.5 rounded-2xl shrink-0 transition-all duration-300
@@ -39,7 +38,6 @@ export function InfoCard({
         {Icon && <Icon className="w-5 h-5 transition-transform duration-300" />}
       </div>
 
-      {/* Textos */}
       <div className="flex flex-col">
         <h3
           className={`font-bold text-sm tracking-tight transition-colors duration-200 ${

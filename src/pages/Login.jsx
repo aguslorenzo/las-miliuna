@@ -22,7 +22,6 @@ export function Login() {
   return (
     <div className="w-full h-screen overflow-hidden grid grid-cols-1 lg:grid-cols-2 bg-white font-sans">
       
-      {/* SECCIÓN IZQUIERDA: Imagen */}
       <div className="hidden lg:block w-full h-full bg-[#f5f5f5] overflow-hidden border-r border-neutral-100">
         <img
           src="assets/background-login.png"
@@ -31,10 +30,9 @@ export function Login() {
         />
       </div>
 
-      {/* SECCIÓN DERECHA: Formulario */}
+      {/* Formulario */}
       <div className="flex items-center justify-center p-6 h-full bg-white">
         
-        {/* Ancho máximo ligeramente ampliado (max-w-md / 440px) */}
         <div className="w-full max-w-md bg-white p-8 sm:p-10 rounded-2xl shadow-lg shadow-neutral-100 border border-neutral-100/80">
           
           <h1 className="font-heading text-3xl font-bold text-center text-neutral-700 mb-8">
@@ -43,7 +41,6 @@ export function Login() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             
-            {/* Campo Correo */}
             <div className="space-y-2">
               <label 
                 htmlFor="email" 
@@ -63,7 +60,6 @@ export function Login() {
               />
             </div>
 
-            {/* Campo Contraseña */}
             <div className="space-y-2">
               <label 
                 htmlFor="password" 
@@ -83,7 +79,6 @@ export function Login() {
               />
             </div>
 
-            {/* Enlace Recuperar */}
             <div className="text-center pt-1">
               <a
                 href="#recuperar"
@@ -93,7 +88,6 @@ export function Login() {
               </a>
             </div>
 
-            {/* Botón Entrar */}
             <button
               type="submit"
               className="font-heading w-full py-3.5 px-4 bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-white font-semibold text-base rounded-xl transition-all cursor-pointer mt-2 shadow-xs"
@@ -101,7 +95,6 @@ export function Login() {
               Entrar
             </button>
 
-            {/* Enlace Registro */}
             <div className="text-center pt-2 text-xs text-neutral-400 font-medium">
               ¿No tenés cuenta?{" "}
               <Link

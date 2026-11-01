@@ -1,4 +1,4 @@
-import { Sparkles, Heart, Clock, Store, Users, ArrowRight } from "lucide-react";
+import { Clock, Store, Users, ArrowRight } from "lucide-react";
 import { Footer } from "../components/Footer";
 import { TopBanner } from "../components/TopBanner";
 import { Navbar } from "../components/Navbar";
@@ -8,10 +8,9 @@ export function About() {
     <div className="min-h-screen bg-white font-sans text-neutral-600 flex flex-col justify-between">
       <TopBanner />
       <Navbar />  
-      {/* CONTENIDO PRINCIPAL */}
+
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-16">
         
-        {/* ================= SECCIÓN 1: SOBRE NOSOTRAS (Cabecera + Foto) ================= */}
         <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-7 space-y-4">
             <span className="text-xs font-bold uppercase tracking-widest text-primary-500 bg-primary-100 px-3 py-1 rounded-full">
@@ -30,7 +29,6 @@ export function About() {
             </div>
           </div>
 
-          {/* FOTO 1 (Donde marcaste arriba a la derecha en la inspo) */}
           <div className="md:col-span-5">
             <div className="relative rounded-3xl overflow-hidden shadow-md border-4 border-white bg-neutral-100 h-64 sm:h-72">
               <img 
@@ -42,7 +40,6 @@ export function About() {
           </div>
         </section>
 
-        {/* ================= SECCIÓN 2: CÓMO EMPEZÓ TODO (Línea de tiempo) ================= */}
         <section className="bg-primary-100/30 border border-primary-100/60 rounded-3xl p-8 sm:p-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           
           <div className="md:col-span-6 space-y-4">
@@ -60,7 +57,6 @@ export function About() {
             </p>
           </div>
 
-          {/* Línea de tiempo simple o hitos */}
           <div className="md:col-span-6 space-y-4 bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-2xs">
             <div className="flex items-start gap-3">
               <div className="p-2 bg-primary-100 text-primary-500 rounded-xl mt-0.5"><Clock className="w-4 h-4"/></div>
@@ -89,10 +85,8 @@ export function About() {
 
         </section>
 
-        {/* ================= SECCIÓN 3: MUCHO MÁS QUE PRODUCTOS (Segunda Foto) ================= */}
         <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           
-          {/* FOTO 2 (Abajo a la izquierda según la referencia) */}
           <div className="md:col-span-5 order-2 md:order-1">
             <div className="relative rounded-3xl overflow-hidden shadow-md border-4 border-white bg-neutral-100 h-64 sm:h-72">
               <img 
@@ -120,7 +114,7 @@ export function About() {
 
         </section>
 
-        {/* ================= SECCIÓN 4: CTA / SUMATE ================= */}
+        {/* cta */}
         <section className="bg-neutral-100/60 border border-neutral-100 rounded-3xl p-8 sm:p-10 text-center space-y-4 max-w-2xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-widest text-primary-500 bg-white px-3 py-1 rounded-full shadow-2xs">
             Sumate

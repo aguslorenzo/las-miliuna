@@ -21,17 +21,14 @@ export function Navbar({ onOpenCart, cartCount = 0 }) {
 
   return (
     <nav className="w-full bg-primary-400 sticky top-0 z-40 shadow-xs">
-      {/* Usamos grid-cols-3 para asegurar 3 columnas idénticas y márgenes compactos */}
       <div className="w-full px-3 sm:px-4 h-16 grid grid-cols-3 items-center">
         
-        {/* 1. IZQUIERDA: Buscador */}
         <div className="flex justify-start">
           <div className="w-full max-w-xs">
             <SearchBar />
           </div>
         </div>
 
-        {/* 2. CENTRO: Logo perfectamente centrado */}
         <div className="flex justify-center">
           <Link to="/" className="flex items-center">
             <img 
@@ -42,10 +39,8 @@ export function Navbar({ onOpenCart, cartCount = 0 }) {
           </Link>
         </div>
 
-        {/* 3. DERECHA: Links de navegación + Carrito */}
         <div className="flex items-center justify-end gap-6 lg:gap-8">
           
-          {/* Links de navegación */}
           <div className="hidden md:flex items-center gap-5 lg:gap-7 font-heading">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
@@ -68,7 +63,7 @@ export function Navbar({ onOpenCart, cartCount = 0 }) {
             })}
           </div>
 
-          {/* Botón Carrito */}
+          {/* carrito */}
           <button 
             onClick={handleCartClick}
             className="relative flex items-center justify-center p-2 rounded-xl text-neutral-100 hover:bg-primary-500/80 active:bg-primary-600 transition-colors cursor-pointer"

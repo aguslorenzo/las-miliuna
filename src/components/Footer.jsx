@@ -5,10 +5,8 @@ export function Footer() {
     <footer className="w-full bg-neutral-600 text-neutral-100 pt-12 pb-6 px-4 md:px-8">
       <div className="w-full max-w-7xl mx-auto">
         
-        {/* Grid Principal del Footer */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-neutral-500/40">
           
-          {/* Columna 1: Info Marca + Redes */}
           <div className="md:col-span-2 space-y-4">
             <h3 className="text-xl font-black tracking-wide text-white">
               LAS MILIUNA
@@ -17,7 +15,7 @@ export function Footer() {
               Conectamos emprendedores locales con quienes valoran lo hecho a mano. Piezas únicas con historia y dedicación.
             </p>
 
-            {/* Redes Sociales */}
+            {/* redes */}
             <div className="flex items-center gap-3 pt-2">
               <a
                 href="https://instagram.com"
@@ -49,7 +47,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Columna 2: Navegación */}
+          {/* links */}
           <div>
             <h4 className="font-semibold text-sm text-primary-200 tracking-wider uppercase mb-4">
               Navegación
@@ -62,7 +60,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Columna 3: Ayuda */}
+          {/* ayuda */}
           <div>
             <h4 className="font-semibold text-sm text-primary-200 tracking-wider uppercase mb-4">
               Ayuda
@@ -77,7 +75,7 @@ export function Footer() {
 
         </div>
 
-        {/* Bottom Bar: Copyright */}
+        {/* copyright */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-300 gap-3">
           <p>© 2026 Las Miliuna. Todos los derechos reservados.</p>
           <p className="flex items-center gap-1">

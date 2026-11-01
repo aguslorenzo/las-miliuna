@@ -85,7 +85,7 @@ export function Catalog() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
-  // Items del carrito
+  // items del carrito
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
@@ -150,11 +150,11 @@ export function Catalog() {
   return (
     <div className="min-h-screen flex flex-col bg-neutral-100/30 font-sans relative overflow-x-hidden">
       <TopBanner />
-      {/* Navbar que activa/desactiva el carrito */}
+
       <Navbar onOpenCart={() => setIsCartOpen(true)} />
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8">
-        {/* Toggle Filtro Mobile */}
+
         <div className="lg:hidden flex items-center justify-between mb-6 pb-4 border-b border-neutral-100">
           <h1 className="font-heading text-xl font-bold text-neutral-600">
             Catálogo
@@ -169,7 +169,7 @@ export function Catalog() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* ================= 1. SIDEBAR DE FILTROS IZQUIERDA (3 COLS) ================= */}
+          {/* contenedor filtro */}
           <aside className="lg:col-span-3 hidden lg:block">
             <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-xs space-y-6 sticky top-24">
               <div>
@@ -214,7 +214,7 @@ export function Catalog() {
             </div>
           </aside>
 
-          {/* ================= 2. GRILLA PRINCIPAL DE PRODUCTOS (9 COLS) ================= */}
+          {/* grilla-cards */}
           <section className="lg:col-span-9">
             <div className="hidden lg:flex items-center justify-between mb-6">
               <h1 className="font-heading text-2xl font-bold text-neutral-600 tracking-tight">
@@ -225,14 +225,12 @@ export function Catalog() {
               </span>
             </div>
 
-            {/* Configurado en 3 columnas para que las fotos tengan buen espacio */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {PRODUCTS.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}
                   onAddToCart={(item) => {
-                    // Lógica para agregar al carrito y abrir el drawer
                     handleAddToCart(item);
                     setIsCartOpen(true);
                   }}
@@ -243,9 +241,9 @@ export function Catalog() {
         </div>
       </main>
 
-      {/* ================= 3. PANEL LATERAL DERECHO: TU CARRITO (DRAWER) ================= */}
+      {/* carrito */}
 
-      {/* Overlay Oscuro tenue detrás del carrito */}
+      {/* overlay-carrito-abierto */}
       {isCartOpen && (
         <div
           onClick={() => setIsCartOpen(false)}
@@ -260,7 +258,6 @@ export function Catalog() {
           ${isCartOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >
-        {/* Header Carrito */}
         <div className="p-6 border-b border-neutral-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <h2 className="font-heading font-bold text-lg text-neutral-600">
@@ -330,7 +327,6 @@ export function Catalog() {
           ))}
         </div>
 
-        {/* Footer Carrito (Totales y Checkout) */}
         <div className="p-6 bg-neutral-100/20 border-t border-neutral-100 space-y-3">
           <div className="flex justify-between text-xs text-neutral-400">
             <span>Subtotal</span>
@@ -350,8 +346,8 @@ export function Catalog() {
           <button
   type="button"
   onClick={() => {
-    setIsCartOpen(false);    // Cierra la barra lateral del carrito
-    setIsCheckoutOpen(true); // Abre el modal por encima del catálogo
+    setIsCartOpen(false);    // cierra la barra lateral del carrito
+    setIsCheckoutOpen(true); // abre el modal por encima del catálogo
   }}
   className="font-heading block w-full py-3 px-4 bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-white font-semibold text-xs rounded-xl shadow-md hover:shadow-lg transition-all duration-200 mt-2 cursor-pointer text-center"
 >
@@ -361,7 +357,6 @@ export function Catalog() {
       </aside>
 
       <TrustBanner />
-      {/* Footer Reutilizado */}
       <Footer />
       <CheckoutModal
         isOpen={isCheckoutOpen}

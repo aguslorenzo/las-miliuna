@@ -1,8 +1,18 @@
 import { useState } from "react";
-import { X, Check, ArrowRight, ArrowLeft, Trash2, Plus, Minus } from "lucide-react";
+import {
+  X,
+  Check,
+  Plus,
+  Minus,
+} from "lucide-react";
 
-export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem }) {
-  const [step, setStep] = useState(1); // 1: Datos, 2: Pago, 3: Confirmación
+export function CheckoutModal({
+  isOpen,
+  onClose,
+  cartItems,
+  onUpdateQuantity,
+}) {
+  const [step, setStep] = useState(1); // pasos de compra
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -14,12 +24,15 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
     localidad: "",
     codigoPostal: "",
     departamento: "",
-    metodoPago: "transferencia", // o "tarjeta"
+    metodoPago: "transferencia",
   });
 
   if (!isOpen) return null;
 
-  const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0,
+  );
   const shipping = formData.isPickup || cartItems.length === 0 ? 0 : 8.0;
   const total = subtotal + shipping;
 
@@ -38,17 +51,14 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 font-sans">
-      
-      {/* Backdrop oscuro con desenfoque suave */}
+      {/* overlay */}
       <div
         onClick={onClose}
         className="fixed inset-0 bg-neutral-600/40 backdrop-blur-xs transition-opacity"
       />
 
-      {/* Contenedor Principal del Modal */}
+      {/* modal */}
       <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col border border-neutral-100">
-        
-        {/* Botón de cierre */}
         <button
           onClick={onClose}
           className="absolute top-5 right-5 p-2 text-neutral-300 hover:text-neutral-600 rounded-full hover:bg-neutral-100 transition-colors z-20 cursor-pointer"
@@ -56,65 +66,74 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
           <X className="w-5 h-5" />
         </button>
 
-        {/* ================= STEPPER HEADER ================= */}
         <div className="px-8 pt-8 pb-4 border-b border-neutral-100">
           <div className="flex items-center justify-center gap-2 sm:gap-6 max-w-lg mx-auto">
-            
-            {/* Paso 1 */}
+            {/* paso 1 */}
             <div className="flex items-center gap-2">
               <span
                 className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
-                  step >= 1 ? "bg-neutral-600 text-white" : "bg-neutral-100 text-neutral-400"
+                  step >= 1
+                    ? "bg-neutral-600 text-white"
+                    : "bg-neutral-100 text-neutral-400"
                 }`}
               >
                 1
               </span>
-              <span className={`text-xs font-bold hidden sm:inline ${step >= 1 ? "text-neutral-600" : "text-neutral-300"}`}>
+              <span
+                className={`text-xs font-bold hidden sm:inline ${step >= 1 ? "text-neutral-600" : "text-neutral-300"}`}
+              >
                 Datos personales
               </span>
             </div>
 
-            <div className={`h-0.5 w-8 sm:w-12 ${step >= 2 ? "bg-neutral-600" : "bg-neutral-100"}`} />
+            <div
+              className={`h-0.5 w-8 sm:w-12 ${step >= 2 ? "bg-neutral-600" : "bg-neutral-100"}`}
+            />
 
-            {/* Paso 2 */}
+            {/* paso 2 */}
             <div className="flex items-center gap-2">
               <span
                 className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
-                  step >= 2 ? "bg-neutral-600 text-white" : "bg-neutral-100 text-neutral-400"
+                  step >= 2
+                    ? "bg-neutral-600 text-white"
+                    : "bg-neutral-100 text-neutral-400"
                 }`}
               >
                 2
               </span>
-              <span className={`text-xs font-bold hidden sm:inline ${step >= 2 ? "text-neutral-600" : "text-neutral-300"}`}>
+              <span
+                className={`text-xs font-bold hidden sm:inline ${step >= 2 ? "text-neutral-600" : "text-neutral-300"}`}
+              >
                 Método de pago
               </span>
             </div>
 
-            <div className={`h-0.5 w-8 sm:w-12 ${step >= 3 ? "bg-neutral-600" : "bg-neutral-100"}`} />
+            <div
+              className={`h-0.5 w-8 sm:w-12 ${step >= 3 ? "bg-neutral-600" : "bg-neutral-100"}`}
+            />
 
-            {/* Paso 3 */}
+            {/* paso 3 */}
             <div className="flex items-center gap-2">
               <span
                 className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
-                  step === 3 ? "bg-primary-400 text-white" : "bg-neutral-100 text-neutral-400"
+                  step === 3
+                    ? "bg-primary-400 text-white"
+                    : "bg-neutral-100 text-neutral-400"
                 }`}
               >
                 3
               </span>
-              <span className={`text-xs font-bold hidden sm:inline ${step === 3 ? "text-primary-400" : "text-neutral-300"}`}>
+              <span
+                className={`text-xs font-bold hidden sm:inline ${step === 3 ? "text-primary-400" : "text-neutral-300"}`}
+              >
                 Confirmar compra
               </span>
             </div>
-
           </div>
         </div>
 
-        {/* ================= CONTENIDO SPLIT (FORM + RESUMEN) ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 flex-1 overflow-y-auto">
-          
-          {/* IZQUIERDA: Formulario dinámico según paso (7 cols) */}
           <div className="lg:col-span-7 p-6 sm:p-8 space-y-6">
-            
             {step === 1 && (
               <form onSubmit={handleNext} className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
@@ -159,8 +178,10 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
                 />
 
                 <div className="pt-2">
-                  <h4 className="text-xs font-bold text-neutral-600 mb-2">Datos de envío</h4>
-                  
+                  <h4 className="text-xs font-bold text-neutral-600 mb-2">
+                    Datos de envío
+                  </h4>
+
                   <label className="flex items-center gap-2 cursor-pointer mb-3 select-none">
                     <input
                       type="checkbox"
@@ -170,7 +191,18 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
                       className="w-4 h-4 rounded accent-primary-400 cursor-pointer"
                     />
                     <span className="text-xs text-neutral-500 font-medium">
-                      Retiro en Las Miliuna <span className="text-primary-400 font-bold underline"><span><a href="https://maps.app.goo.gl/oGJHNh2MTEwvK1Uw7" target="_blank" rel="noopener noreferrer">(ver ubicación)</a></span></span>
+                      Retiro en Las Miliuna{" "}
+                      <span className="text-primary-400 font-bold underline">
+                        <span>
+                          <a
+                            href="https://maps.app.goo.gl/oGJHNh2MTEwvK1Uw7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            (ver ubicación)
+                          </a>
+                        </span>
+                      </span>
                     </span>
                   </label>
 
@@ -238,7 +270,9 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
 
             {step === 2 && (
               <div className="space-y-4">
-                <h3 className="font-heading font-bold text-sm text-neutral-600">Seleccioná un método de pago</h3>
+                <h3 className="font-heading font-bold text-sm text-neutral-600">
+                  Seleccioná un método de pago
+                </h3>
                 <div className="space-y-3">
                   <label className="flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer hover:border-primary-300">
                     <input
@@ -250,8 +284,12 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
                       className="accent-primary-400"
                     />
                     <div>
-                      <p className="text-xs font-bold text-neutral-600">Transferencia Bancaria / Alias</p>
-                      <p className="text-[11px] text-neutral-300">10% de descuento automático</p>
+                      <p className="text-xs font-bold text-neutral-600">
+                        Transferencia Bancaria / Alias
+                      </p>
+                      <p className="text-[11px] text-neutral-300">
+                        10% de descuento automático
+                      </p>
                     </div>
                   </label>
 
@@ -265,8 +303,12 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
                       className="accent-primary-400"
                     />
                     <div>
-                      <p className="text-xs font-bold text-neutral-600">Tarjeta de Crédito / Débito</p>
-                      <p className="text-[11px] text-neutral-300">Mercado Pago / Go Cuotas</p>
+                      <p className="text-xs font-bold text-neutral-600">
+                        Tarjeta de Crédito / Débito
+                      </p>
+                      <p className="text-[11px] text-neutral-300">
+                        Mercado Pago / Go Cuotas
+                      </p>
                     </div>
                   </label>
                 </div>
@@ -293,9 +335,12 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
                 <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-full flex items-center justify-center mx-auto">
                   <Check className="w-6 h-6" />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-neutral-600">¡Casi listo!</h3>
+                <h3 className="font-heading text-lg font-bold text-neutral-600">
+                  ¡Casi listo!
+                </h3>
                 <p className="text-xs text-neutral-400 max-w-xs mx-auto">
-                  Al hacer clic en confirmar, registrarás tu pedido para coordinar la entrega.
+                  Al hacer clic en confirmar, registrarás tu pedido para
+                  coordinar la entrega.
                 </p>
 
                 <div className="flex gap-3 pt-4">
@@ -314,38 +359,52 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
                 </div>
               </div>
             )}
-
           </div>
 
-          {/* DERECHA: Resumen de Carrito (5 cols) */}
           <div className="lg:col-span-5 bg-neutral-100/30 p-6 sm:p-8 border-t lg:border-t-0 lg:border-l border-neutral-100 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-heading font-bold text-sm text-neutral-600">Tu Carrito</h3>
+                <h3 className="font-heading font-bold text-sm text-neutral-600">
+                  Tu Carrito
+                </h3>
                 <span className="text-[11px] text-neutral-300 font-medium">
                   {cartItems.length} Artículos
                 </span>
               </div>
 
-              {/* Lista compacta de items */}
               <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
                 {cartItems.map((item) => (
-                  <div key={item.id} className="flex items-center gap-3 bg-white p-2.5 rounded-xl border border-neutral-100 shadow-2xs">
+                  <div
+                    key={item.id}
+                    className="flex items-center gap-3 bg-white p-2.5 rounded-xl border border-neutral-100 shadow-2xs"
+                  >
                     <img
                       src={item.image}
                       alt={item.name}
                       className="w-12 h-12 object-cover rounded-lg bg-neutral-100"
                     />
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-bold text-xs text-neutral-600 truncate">{item.name}</h4>
-                      <p className="text-[10px] text-neutral-300">por {item.vendor}</p>
-                      
+                      <h4 className="font-bold text-xs text-neutral-600 truncate">
+                        {item.name}
+                      </h4>
+                      <p className="text-[10px] text-neutral-300">
+                        {item.vendor}
+                      </p>
+
                       <div className="flex items-center gap-1 mt-1">
-                        <button onClick={() => onUpdateQuantity(item.id, -1)} className="p-0.5 text-neutral-300 hover:text-neutral-600">
+                        <button
+                          onClick={() => onUpdateQuantity(item.id, -1)}
+                          className="p-0.5 text-neutral-300 hover:text-neutral-600"
+                        >
                           <Minus className="w-3 h-3" />
                         </button>
-                        <span className="text-xs font-semibold px-1 text-neutral-600">{item.quantity}</span>
-                        <button onClick={() => onUpdateQuantity(item.id, 1)} className="p-0.5 text-neutral-300 hover:text-neutral-600">
+                        <span className="text-xs font-semibold px-1 text-neutral-600">
+                          {item.quantity}
+                        </span>
+                        <button
+                          onClick={() => onUpdateQuantity(item.id, 1)}
+                          className="p-0.5 text-neutral-300 hover:text-neutral-600"
+                        >
                           <Plus className="w-3 h-3" />
                         </button>
                       </div>
@@ -360,7 +419,6 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
               </div>
             </div>
 
-            {/* Totales */}
             <div className="pt-4 border-t border-neutral-200/60 mt-4 space-y-2">
               <div className="flex justify-between text-xs text-neutral-400">
                 <span>Subtotal</span>
@@ -368,20 +426,22 @@ export function CheckoutModal({ isOpen, onClose, cartItems, onUpdateQuantity, on
               </div>
               <div className="flex justify-between text-xs text-neutral-400">
                 <span>Envío estimado</span>
-                <span>{shipping === 0 ? "Gratis / Retiro" : `$${shipping.toFixed(2)}`}</span>
+                <span>
+                  {shipping === 0
+                    ? "Gratis / Retiro"
+                    : `$${shipping.toFixed(2)}`}
+                </span>
               </div>
               <div className="flex justify-between text-sm font-bold text-neutral-600 pt-2 border-t border-neutral-200/60">
                 <span>Total</span>
-                <span className="font-heading text-primary-500 text-base">${total.toFixed(2)}</span>
+                <span className="font-heading text-primary-500 text-base">
+                  ${total.toFixed(2)}
+                </span>
               </div>
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
   );
 }

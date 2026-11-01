@@ -2,7 +2,7 @@
 
 @theme {
 
-    /* primary-colors*/
+    /*primary-colors*/
     --color-primary-100: #FDD8E3;
     --color-primary-200: #FA85AA;
     --color-primary-300: #F56794;
@@ -65,7 +65,7 @@
     --color-accent-green-600: #3C6626;
     --color-accent-green-700: #2D4D1D;
 
-    /* Configuración de Fuentes */
+    /*fuentes */
     --font-sans: 'Roboto', sans-serif;
     --font-heading: 'Lexend', sans-serif;
 }
