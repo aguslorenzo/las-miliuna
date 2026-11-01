@@ -21,15 +21,18 @@ export function Navbar({ onOpenCart, cartCount = 0 }) {
 
   return (
     <nav className="w-full bg-primary-400 sticky top-0 z-40 shadow-xs">
-      <div className="w-full mx-auto px-3 sm:px-4 h-16 flex items-center justify-between gap-4">
+      {/* Usamos grid-cols-3 para asegurar 3 columnas idénticas y márgenes compactos */}
+      <div className="w-full px-3 sm:px-4 h-16 grid grid-cols-3 items-center">
         
-        {/* 1. IZQUIERDA AL BORDE: Buscador */}
-        <div className="flex justify-start shrink-0 w-40 sm:w-56 md:w-64">
-          <SearchBar />
+        {/* 1. IZQUIERDA: Buscador */}
+        <div className="flex justify-start">
+          <div className="w-full max-w-xs">
+            <SearchBar />
+          </div>
         </div>
 
-        {/* 2. CENTRO: Logo / Nombre Las Miliuna */}
-        <div className="flex justify-center shrink-0">
+        {/* 2. CENTRO: Logo perfectamente centrado */}
+        <div className="flex justify-center">
           <Link to="/" className="flex items-center">
             <img 
               src="assets/las-miliuna.png" 
@@ -39,10 +42,10 @@ export function Navbar({ onOpenCart, cartCount = 0 }) {
           </Link>
         </div>
 
-        {/* 3. DERECHA: Links de navegación + Carrito al fondo */}
-        <div className="flex items-center justify-end gap-6 lg:gap-8 shrink-0">
+        {/* 3. DERECHA: Links de navegación + Carrito */}
+        <div className="flex items-center justify-end gap-6 lg:gap-8">
           
-          {/* Links a la derecha del logo */}
+          {/* Links de navegación */}
           <div className="hidden md:flex items-center gap-5 lg:gap-7 font-heading">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
@@ -65,7 +68,7 @@ export function Navbar({ onOpenCart, cartCount = 0 }) {
             })}
           </div>
 
-          {/* Carrito al fondo a la derecha */}
+          {/* Botón Carrito */}
           <button 
             onClick={handleCartClick}
             className="relative flex items-center justify-center p-2 rounded-xl text-neutral-100 hover:bg-primary-500/80 active:bg-primary-600 transition-colors cursor-pointer"

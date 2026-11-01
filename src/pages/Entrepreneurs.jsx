@@ -6,65 +6,125 @@ import { TopBanner } from "../components/TopBanner";
 
 const ENTREPRENEURS = [
   {
-    id: 1,
-    name: "Cerámicas Ana",
-    category: "Cerámica & Mosaicos",
-    image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80",
-    bio: "Piezas utilitarias y decorativas modeladas a mano. Cada esmalte es único y cocido en alta temperatura.",
-    location: "Olavarría, Bs. As.",
-    instagram: "@ceramicasana",
-    layout: "col-span-1 md:col-span-2 h-[160px]", // Horizontal compacta
+    "id": 1,
+    "name": "Cerámicas Ana",
+    "category": "Cerámica & Mosaicos",
+    "image": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80",
+    "bio": "Piezas utilitarias y decorativas modeladas a mano. Cada esmalte es único y cocido en alta temperatura.",
+    "location": "Olavarría, Bs. As.",
+    "instagram": "@ceramicasana",
+    "layout": "col-span-1 h-[190px] md:translate-y-6"
   },
   {
-    id: 2,
-    name: "Tejidos Deco",
+    "id": 2,
+    "name": "Tejidos Deco",
     category: "Textiles Hogares",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80",
-    bio: "Diseños en telar y crochet para vestir los espacios de calidez. Fibras naturales y nobles.",
-    location: "Tandil, Bs. As.",
-    instagram: "@tejidosdeco",
-    layout: "col-span-1 md:row-span-2 h-[220px] md:h-[340px] md:translate-y-6", // Vertical alta desfasada hacia abajo
+    "image": "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80",
+    "bio": "Diseños en telar y crochet para vestir los espacios de calidez. Fibras naturales y nobles.",
+    "location": "Tandil, Bs. As.",
+    "instagram": "@tejidosdeco",
+    "layout": "col-span-1 h-[250px] md:-translate-y-3"
   },
   {
-    id: 3,
-    name: "Velas Luz",
-    category: "Velas & Aromaterapia",
-    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80",
-    bio: "Velas de cera de soja 100% ecológicas con aceites esenciales puros. Iluminación consciente.",
-    location: "Olavarría, Bs. As.",
-    instagram: "@velasluz",
-    layout: "col-span-1 md:col-span-2 h-[160px]", // Horizontal compacta
+    "id": 3,
+    "name": "Velas Luz",
+    "category": "Velas & Aromaterapia",
+    "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80",
+    "bio": "Velas de cera de soja 100% ecológicas con aceites esenciales puros. Iluminación consciente.",
+    "location": "Olavarría, Bs. As.",
+    "instagram": "@velasluz",
+    "layout": "col-span-1 h-[160px] md:translate-y-10"
   },
   {
-    id: 4,
-    name: "Bosque Ilustrado",
-    category: "Papelería & Arte",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80",
-    bio: "Ilustraciones botánicas llevadas a láminas, agendas y cuadernos artesanales.",
-    location: "Mar del Plata, Bs. As.",
-    instagram: "@bosqueilustrado",
-    layout: "col-span-1 md:row-span-2 h-[220px] md:h-[340px] md:-translate-y-4", // Vertical desfasada hacia arriba
+    "id": 4,
+    "name": "Bosque Ilustrado",
+    "category": "Papelería & Arte",
+    "image": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80",
+    "bio": "Ilustraciones botánicas llevadas a láminas, agendas y cuadernos artesanales.",
+    "location": "Mar del Plata, Bs. As.",
+    "instagram": "@bosqueilustrado",
+    "layout": "col-span-1 h-[220px] md:-translate-y-6"
   },
   {
-    id: 5,
-    name: "Alma de Cuero",
-    category: "Marroquinería",
-    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80",
-    bio: "Accesorios y carteras de cuero genuino trabajadas a mano con costuras reforzadas.",
-    location: "Tandil, Bs. As.",
-    instagram: "@almadecuero",
-    layout: "col-span-1 md:col-span-2 h-[160px]", // Horizontal compacta
+    "id": 5,
+    "name": "Alma de Cuero",
+    "category": "Marroquinería",
+    "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80",
+    "bio": "Accesorios y carteras de cuero genuino trabajadas a mano con costuras reforzadas.",
+    "location": "Tandil, Bs. As.",
+    "instagram": "@almadecuero",
+    "layout": "col-span-1 h-[180px] md:translate-y-2"
   },
   {
-    id: 6,
-    name: "Botánica Viva",
-    category: "Macetas & Plantas",
-    image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80",
-    bio: "Cerámica artesanal combinada con especies botánicas de interior listas para decorar.",
-    location: "Olavarría, Bs. As.",
-    instagram: "@botanicaviva",
-    layout: "col-span-1 md:col-span-2 h-[160px]", // Horizontal compacta
+    "id": 6,
+    "name": "Botánica Viva",
+    "category": "Macetas & Plantas",
+    "image": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80",
+    "bio": "Cerámica artesanal combinada con especies botánicas de interior listas para decorar.",
+    "location": "Olavarría, Bs. As.",
+    "instagram": "@botanicaviva",
+    "layout": "col-span-1 h-[230px] md:-translate-y-8"
   },
+  {
+    "id": 7,
+    "name": "Rincón Dulce",
+    "category": "Repostería Artesanal",
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80",
+    "bio": "Pastelería fina y alfajores de autor elaborados con ingredientes de primera calidad.",
+    "location": "Tandil, Bs. As.",
+    "instagram": "@rincondulce",
+    "layout": "col-span-1 h-[170px] md:translate-y-4"
+  },
+  {
+    "id": 8,
+    "name": "Madera & Origen",
+    "category": "Carpintería Deco",
+    "image": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=600&q=80",
+    "bio": "Tablas para picadas, cuencos y utensilios de cocina tallados en maderas recuperadas.",
+    "location": "Azul, Bs. As.",
+    "instagram": "@maderayorigen",
+    "layout": "col-span-1 h-[240px] md:-translate-y-4"
+  },
+  {
+    "id": 9,
+    "name": "Hilados del Sur",
+    "category": "Mantas & Lana",
+    "image": "https://images.unsplash.com/photo-1606744888344-493238951221?auto=format&fit=crop&w=600&q=80",
+    "bio": "Mantas gigantes de vellón merino y tejidas a dos agujas para abrigar tus momentos.",
+    "location": "Tandil, Bs. As.",
+    "instagram": "@hiladosdelsur",
+    "layout": "col-span-1 h-[190px] md:translate-y-8"
+  },
+  {
+    "id": 10,
+    "name": "Estudio Vidrio",
+    "category": "Vitrofusion & Arte",
+    "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80",
+    "bio": "Luminarias, objetos de decoración y platos artesanales modelados en vitrofusión.",
+    "location": "Olavarría, Bs. As.",
+    "instagram": "@estudiovidrio",
+    "layout": "col-span-1 h-[210px] md:-translate-y-2"
+  },
+  {
+    "id": 11,
+    "name": "Aromas del Campo",
+    "category": "Cosmética Natural",
+    "image": "https://images.unsplash.com/photo-1608248597266-c89050df9c15?auto=format&fit=crop&w=600&q=80",
+    "bio": "Jabones botánicos, bálsamos y brumas corporales elaborados con hierbas de las sierras.",
+    "location": "Tandil, Bs. As.",
+    "instagram": "@aromasdelcampo",
+    "layout": "col-span-1 h-[160px] md:translate-y-6"
+  },
+  {
+    "id": 12,
+    "name": "Taller Papel",
+    "category": "Encuadernación",
+    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+    "bio": "Cuadernos de notas, bitácoras de viaje y álbumes cosidos a mano con tapas enteladas.",
+    "location": "Mar del Plata, Bs. As.",
+    "instagram": "@tallerpapel",
+    "layout": "col-span-1 h-[230px] md:-translate-y-6"
+  }
 ];
 
 export function Entrepreneurs() {
@@ -82,10 +142,10 @@ export function Entrepreneurs() {
       <TopBanner />
       <Navbar />
 
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8">
+      <main className="bg-secondary-purple-100 flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-12">
         
         {/* Cabecera */}
-        <div className="text-center max-w-xl mx-auto space-y-2 mb-16">
+        <div className="text-center max-w-xl mx-auto space-y-2 mb-20">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary-100 text-primary-600 rounded-full text-xs font-bold">
             <Sparkles className="w-3.5 h-3.5" />
             Comunidad Creativa
@@ -98,8 +158,8 @@ export function Entrepreneurs() {
           </p>
         </div>
 
-        {/* GRILLA DESFASADA / ORGÁNICA */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pb-12">
+        {/* GRILLA ESTILO MURO DE CUADROS / ASIMÉTRICA */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 pb-24 pt-4">
           {ENTREPRENEURS.map((item) => {
             const isFlipped = flippedCards[item.id];
 
@@ -108,21 +168,21 @@ export function Entrepreneurs() {
                 key={item.id}
                 onClick={() => handleCardClick(item.id)}
                 className={`
-                  relative cursor-pointer group perspective-1000 w-full
+                  relative cursor-pointer group perspective-1000 w-full transition-all duration-300
                   ${item.layout}
                 `}
               >
                 {/* Contenedor con efecto Flip 3D */}
                 <div
                   className={`
-                    w-full h-full relative rounded-2xl transition-transform duration-700 shadow-xs hover:shadow-xl
-                    [transform-style:preserve-3d]
-                    ${isFlipped ? "[transform:rotateY(180deg)]" : ""}
+                    w-full h-full relative rounded-2xl transition-transform duration-700 shadow-sm hover:shadow-2xl
+                    transform-3d
+                    ${isFlipped ? "transform-[rotateY(180deg)]" : ""}
                   `}
                 >
                   
                   {/* ================= FRENTE ================= */}
-                  <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden border border-neutral-100 bg-white [backface-visibility:hidden] flex flex-col justify-between p-4">
+                  <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden border border-neutral-200/60 bg-white backface-hidden flex flex-col justify-between p-4 sm:p-5">
                     
                     <div className="absolute inset-0 z-0 bg-neutral-100 overflow-hidden">
                       <img
@@ -130,7 +190,7 @@ export function Entrepreneurs() {
                         alt={item.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/25 to-transparent" />
                     </div>
 
                     {/* Badge categoría y ícono */}
@@ -158,7 +218,7 @@ export function Entrepreneurs() {
                   </div>
 
                   {/* ================= DORSO (Info al girar) ================= */}
-                  <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden border border-neutral-100 bg-white [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col justify-between p-5 shadow-md">
+                  <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden border border-neutral-200/60 bg-white backface-hidden transform-[rotateY(180deg)] flex flex-col justify-between p-5 shadow-md">
                     
                     <div>
                       <div className="flex items-center justify-between mb-1.5">
