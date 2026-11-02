@@ -76,9 +76,6 @@ export function Entrepreneurs() {
                         {item.category}
                       </span>
                       
-                      <div className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <RotateCw className="w-3.5 h-3.5" />
-                      </div>
                     </div>
 
                     <div className="relative z-10 text-white flex items-end justify-between">
@@ -99,7 +96,7 @@ export function Entrepreneurs() {
                     <div>
                       <div className="flex items-center justify-between mb-1.5">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-primary-500 bg-primary-100 px-2.5 py-0.5 rounded-full">
-                          Creador
+                          <a href="/catalogo">Ver productos</a>
                         </span>
                         <RotateCw className="w-3 h-3 text-neutral-300" />
                       </div>

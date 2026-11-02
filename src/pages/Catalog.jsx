@@ -6,14 +6,7 @@ import { TopBanner } from "../components/TopBanner";
 import { ProductCard } from "../components/ProductCard";
 import { TrustBanner } from "../components/TrustBanner";
 import { CheckoutModal } from "../components/CheckoutModal.jsx";
-import {
-  Filter,
-  X,
-  Trash2,
-  Plus,
-  Minus,
-} from "lucide-react";
-
+import { Filter, X, Trash2, Plus, Minus, ArrowUpDown } from "lucide-react";
 
 // Lista de Emprendedores
 const VENDORS = [
@@ -81,7 +74,9 @@ const PRODUCTS = [
 
 export function Catalog() {
   const [selectedVendors, setSelectedVendors] = useState(["Cerámicas Ana"]);
-  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  {
+    /*const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);*/
+  }
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
@@ -154,23 +149,25 @@ export function Catalog() {
       <Navbar onOpenCart={() => setIsCartOpen(true)} />
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8">
-
         <div className="lg:hidden flex items-center justify-between mb-6 pb-4 border-b border-neutral-100">
           <h1 className="font-heading text-xl font-bold text-neutral-600">
             Catálogo
           </h1>
-          <button
-            onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-neutral-100 rounded-xl text-xs font-semibold text-neutral-600 shadow-xs"
-          >
-            <Filter className="w-4 h-4 text-primary-400" />
-            Filtros
-          </button>
+          <div className="flex items-center gap-3">
+            <button className="flex items-center gap-2 px-4 py-2 bg-white border border-neutral-100 rounded-xl text-xs font-semibold text-neutral-600 shadow-xs">
+              <Filter className="w-4 h-4 text-primary-400" />
+              Filtros
+            </button>
+            <button className="flex items-center gap-2 px-4 py-2 bg-white border border-neutral-100 rounded-xl text-xs font-semibold text-neutral-600 shadow-xs">
+              <ArrowUpDown className="w-4 h-4 text-primary-400" />
+              Ordenar por:
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* contenedor filtro */}
-          <aside className="lg:col-span-3 hidden lg:block">
+          {/*<aside className="lg:col-span-3 hidden lg:block">
             <div className="bg-white p-6 rounded-2xl border border-neutral-100 shadow-xs space-y-6 sticky top-24">
               <div>
                 <h3 className="text-xs font-bold text-neutral-600 uppercase tracking-wider mb-1">
@@ -212,20 +209,27 @@ export function Catalog() {
                 Limpiar filtros
               </button>
             </div>
-          </aside>
+          </aside>*/}
 
           {/* grilla-cards */}
-          <section className="lg:col-span-9">
+          <section className="lg:col-span-12">
             <div className="hidden lg:flex items-center justify-between mb-6">
               <h1 className="font-heading text-2xl font-bold text-neutral-600 tracking-tight">
                 Catálogo de Productos
               </h1>
-              <span className="text-xs text-neutral-300 font-medium">
-                Mostrando {PRODUCTS.length} productos
-              </span>
+              <div className="flex items-center gap-3">
+                <button className="flex items-center gap-2 px-4 py-2 bg-white border border-neutral-100 rounded-xl text-xs font-semibold text-neutral-600 shadow-xs">
+                  <Filter className="w-4 h-4 text-primary-400" />
+                  Filtros
+                </button>
+                <button className="flex items-center gap-2 px-4 py-2 bg-white border border-neutral-100 rounded-xl text-xs font-semibold text-neutral-600 shadow-xs">
+                  <ArrowUpDown className="w-4 h-4 text-primary-400" />
+                  Ordenar por:
+                </button>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {PRODUCTS.map((product) => (
                 <ProductCard
                   key={product.id}
@@ -344,15 +348,15 @@ export function Catalog() {
           </div>
 
           <button
-  type="button"
-  onClick={() => {
-    setIsCartOpen(false);    // cierra la barra lateral del carrito
-    setIsCheckoutOpen(true); // abre el modal por encima del catálogo
-  }}
-  className="font-heading block w-full py-3 px-4 bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-white font-semibold text-xs rounded-xl shadow-md hover:shadow-lg transition-all duration-200 mt-2 cursor-pointer text-center"
->
-  Finalizar Compra
-</button>
+            type="button"
+            onClick={() => {
+              setIsCartOpen(false); // cierra la barra lateral del carrito
+              setIsCheckoutOpen(true); // abre el modal por encima del catálogo
+            }}
+            className="font-heading block w-full py-3 px-4 bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-white font-semibold text-xs rounded-xl shadow-md hover:shadow-lg transition-all duration-200 mt-2 cursor-pointer text-center"
+          >
+            Finalizar Compra
+          </button>
         </div>
       </aside>
 
