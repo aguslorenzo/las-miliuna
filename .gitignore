@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.gradle/
+build/
+.idea/
+*.env
+las-miliuna.code-workspace
+.agents/
